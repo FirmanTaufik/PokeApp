@@ -3,4 +3,10 @@
     <string name="home">Home</string>
     <string name="profile">Profile</string>
     <string name="search_pokemon">Search Pokemon</string>
+    <string name="something_wrong_try_again">Something wrong please try again</string>
+
+    <string name="goto_settings">Go to Setting</string>
+    <string name="txt_error_post_notification">Need Permission Notification</string>
+    <string name="notification_granted">otifications permission granted</string>
+    <string name="no_more_data">Sorry No More Data</string>
 </resources>

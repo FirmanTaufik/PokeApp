@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.tabs.TabLayoutMediator
 import firmanpoke.com.apps.R
-import firmanpoke.com.apps.base.BaseActivity
+import firmanpoke.com.apps.ui.presentation.base.BaseActivity
 import firmanpoke.com.apps.databinding.ActivityMainBinding
 import firmanpoke.com.apps.ui.presentation.main.home.HomeFragment
 import firmanpoke.com.apps.ui.presentation.main.profile.ProfileFragment

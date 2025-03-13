@@ -6,10 +6,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="24dp"
-    android:id="@+id/main"
+    android:padding="24dp"
     android:gravity="center"
-    tools:context=".ui.presentation.login.LoginActivity">
+    android:id="@+id/main"
+    tools:context=".ui.presentation.registration.RegistrationActivity">
 
     <!-- Logo -->
     <ImageView
@@ -18,16 +18,15 @@
         android:layout_height="120dp"
         android:src="@mipmap/ic_launcher"
         android:contentDescription="@string/app_name"
-        android:layout_marginTop="48dp"/>
+        android:layout_marginBottom="24dp"/>
 
-    <!-- Username -->
+    <!-- Input Username -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayoutUsername"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
-        android:layout_marginTop="32dp">
+        android:hint="Username" >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtUsername"
@@ -36,15 +35,47 @@
             android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Password -->
+    <!-- Input Email -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutEmail"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:layout_marginTop="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutName"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:layout_marginTop="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!-- Input Password -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayoutPassword"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        app:passwordToggleEnabled="true"
-        android:layout_marginTop="16dp">
+        app:endIconMode="password_toggle"
+        android:layout_marginTop="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtPassword"
@@ -53,25 +84,22 @@
             android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Login Button -->
+    <!-- Register Button -->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
-        style="@style/Widget.Material3.Button"
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Login"
+        android:text="Register"
         android:layout_marginTop="24dp"/>
 
-    <!-- Register Text -->
+    <!-- Link to Login -->
     <TextView
-        android:id="@+id/txtRegister"
+        android:id="@+id/txtLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Belum punya akun? Daftar"
-        android:textColor="?attr/colorPrimary"
-        android:textStyle="bold"
+        android:text="Already have an account? Login"
         android:textSize="14sp"
+        android:layout_marginTop="16dp"
         android:clickable="true"
-        android:focusable="true"
-        android:layout_marginTop="16dp"/>
+        android:focusable="true"/>
 </LinearLayout>
