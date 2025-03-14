@@ -1,6 +1,8 @@
 package firmanpoke.com.apps.ui.presentation.main
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -10,11 +12,14 @@ import com.google.android.material.tabs.TabLayoutMediator
 import firmanpoke.com.apps.R
 import firmanpoke.com.apps.ui.presentation.base.BaseActivity
 import firmanpoke.com.apps.databinding.ActivityMainBinding
+import firmanpoke.com.apps.helper.showToast
 import firmanpoke.com.apps.ui.presentation.main.home.HomeFragment
 import firmanpoke.com.apps.ui.presentation.main.profile.ProfileFragment
+import kotlin.system.exitProcess
 
 class MainActivity : BaseActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private var doubleBackToExitPressedOnce = false
 
     override fun setView() = binding.main
 
@@ -36,5 +41,15 @@ class MainActivity : BaseActivity() {
                 else -> ""
             }
         }.attach()
+    }
+
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            finishAffinity()
+            exitProcess(0)
+        }
+        this.doubleBackToExitPressedOnce = true
+        "Press back again to exit".showToast(this)
+        Handler(Looper.getMainLooper()).postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
     }
 }

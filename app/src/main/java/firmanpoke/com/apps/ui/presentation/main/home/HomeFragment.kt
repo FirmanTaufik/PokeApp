@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
+import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -39,11 +40,19 @@ class HomeFragment : Fragment() {
 
     private fun initSearchView() {
         binding.searchView.apply {
-            isIconified = false // Expand SearchView
+            isIconified = false
             requestFocus()
-            setOnSearchClickListener {
-                "cek".showToast(requireActivity())
-            }
+            setOnQueryTextListener(object : OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    "cek".showToast(requireActivity())
+                     return false
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    return false
+                }
+
+            })
         }
 
     }

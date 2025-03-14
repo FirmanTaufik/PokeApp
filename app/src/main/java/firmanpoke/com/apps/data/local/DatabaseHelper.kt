@@ -84,4 +84,24 @@ class DatabaseHelper(context: Context) :
             user
         }
     }
+
+    suspend fun getUser(username: String, ): User? {
+        return withContext(Dispatchers.IO) {
+            val db = readableDatabase
+            val cursor = db.rawQuery(
+                "SELECT * FROM $TABLE_USERS WHERE $COLUMN_USERNAME=?",
+                arrayOf(username)
+            )
+            var user: User? = null
+            if (cursor.moveToFirst()) {
+                val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+                val name = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAME))
+                val email = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_EMAIL))
+                user = User(id, username, name, email)
+            }
+            cursor.close()
+            db.close()
+            user
+        }
+    }
 }
